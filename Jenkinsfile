@@ -1,7 +1,7 @@
 pipeline {
   agent any
-
-  withEnv(['ICD_WEBHOOK_URL=\'https://tc1:sc1@otcdm.mybluemix.net\'']) {
+  node('linux') {
+   withEnv(['ICD_WEBHOOK_URL=\'https://tc1:sc1@otcdm.mybluemix.net\'']) {
     stages {
           stage('Build') {
             steps {
@@ -25,5 +25,6 @@ pipeline {
             }
           }
     }
+   }
   }
 }
