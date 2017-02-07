@@ -1,8 +1,8 @@
 pipeline {
-    agent any
+  agent any
 
+  withEnv(['ICD_WEBHOOK_URL=\'https://tc1:sc1@otcdm.mybluemix.net\'']) {
     stages {
-        withEnv(['ICD_WEBHOOK_URL=\'https://tc1:sc1@otcdm.mybluemix.net\'']) {
           stage('Build') {
             steps {
                 echo 'Building dev..'
@@ -24,6 +24,6 @@ pipeline {
                 sh 'curl -XPOST "$ICD_WEBHOOK_URL" -d \'{}\''
             }
           }
-        }
     }
+  }
 }
