@@ -23,7 +23,7 @@ pipeline {
         stage('IBM Continuous Delivery Connections') {
             steps {
                 echo 'Creating connections...'
-                curl -XPOST "$ICD_WEBHOOK_URL" -d '{}'
+                sh curl -XPOST "$ICD_WEBHOOK_URL" -d '{}'
             }
         }
     }
