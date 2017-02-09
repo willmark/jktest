@@ -3,8 +3,7 @@ pipeline {
 
     parameters {
        string(defaultValue: 'https://api.ng.bluemix.net', description: 'API endpoint', name: 'CF_API')
-       string(defaultValue: 'YourBluemixUser', description: 'Bluemix User ID', name: 'CF_USER')
-       password(defaultValue: 'YourCFPass', description: 'CF password', name: 'CF_PASS')
+       string(defaultValue: 'YourBluemixUserCreds', description: 'Bluemix User Credentials ID (stored in Jenkins credentials', name: 'CF_USER')
        string(defaultValue: 'DefaultBluemixOrganizationName', description: 'Bluemix organization name', name: 'CF_ORG')
        string(defaultValue: 'DefaultBluemixSpaceName', description: 'Bluemix space name', name: 'CF_SPACE')
     }
