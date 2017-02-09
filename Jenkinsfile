@@ -14,7 +14,7 @@ pipeline {
             steps {
                 echo 'Pre Building..'
                 sh 'cf api $CF_API'
-                sh 'cf login -u $CF_USER -p $CF_PASS -o $CF_ORG -p $CF_SPACE'
+                sh 'cf login -u $CF_USER -p $CF_PASS -o $CF_ORG -s $CF_SPACE'
                 sh 'cf apps'
             }
         }
