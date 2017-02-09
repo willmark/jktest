@@ -3,6 +3,7 @@ pipeline {
 
     parameters {
        string(defaultValue: 'https://api.ng.bluemix.net', description: 'API endpoint', name: 'CF_API')
+       string(defaultValue: 'Jenkins Broker Webhook', description: 'IBM Continuous Delivery Jenkins Broker webhook', name: 'ICD_WEBHOOK_URL')
        string(defaultValue: 'DefaultBluemixOrganizationName', description: 'Bluemix organization name', name: 'CF_ORG')
        string(defaultValue: 'DefaultBluemixSpaceName', description: 'Bluemix space name', name: 'CF_SPACE')
     }
