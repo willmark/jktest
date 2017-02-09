@@ -9,6 +9,10 @@ pipeline {
        string(defaultValue: 'DefaultBluemixSpaceName', description: 'Bluemix space name', name: 'CF_SPACE')
     }
 
+    environment {
+        CF_CREDS = credentials('markcfcreds')
+    }
+
     stages {
         stage('Pre-build') {
             steps {
@@ -16,6 +20,7 @@ pipeline {
                 sh 'cf api $CF_API'
                 sh 'cf login -u $CF_USER -p $CF_PASS -o $CF_ORG -s $CF_SPACE'
                 sh 'cf apps'
+                sh 'echo $CF_CREDS '
             }
         }
         stage('Build') {
