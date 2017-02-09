@@ -9,7 +9,7 @@ pipeline {
     }
 
     environment {
-        CF_CREDS = credentials($CF_USERCREDSID)
+        CF_CREDS = credentials("$CF_USERCREDSID")
     }
 
     stages {
