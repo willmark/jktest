@@ -3,13 +3,13 @@ pipeline {
 
     parameters {
        string(defaultValue: 'https://api.ng.bluemix.net', description: 'API endpoint', name: 'CF_API')
-       string(defaultValue: 'YourBluemixUserCreds', description: 'Bluemix User Credentials ID (stored in Jenkins credentials', name: 'CF_USER')
+       string(defaultValue: 'YourBluemixUserCreds', description: 'Bluemix User Credentials ID (stored in Jenkins credentials', name: 'CF_USERCREDSID')
        string(defaultValue: 'DefaultBluemixOrganizationName', description: 'Bluemix organization name', name: 'CF_ORG')
        string(defaultValue: 'DefaultBluemixSpaceName', description: 'Bluemix space name', name: 'CF_SPACE')
     }
 
     environment {
-        CF_CREDS = credentials('markcfcreds')
+        CF_CREDS = credentials($CF_USERCREDSID)
     }
 
     stages {
