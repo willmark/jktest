@@ -28,5 +28,12 @@ pipeline {
                 sh 'cf icd --create-connection $ICD_WEBHOOK_URL jktest1'
             }
         }
+        stage('Delete') {
+            steps {
+                echo 'Deleting....'
+                sh 'cf delete jktest1 -f'
+                sh 'cf icd --delete-connection $ICD_WEBHOOK_URL jktest1'
+            }
+        }
     }
 }
