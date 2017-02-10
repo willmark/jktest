@@ -31,8 +31,9 @@ pipeline {
         stage('Delete') {
             steps {
                 echo 'Deleting....'
-                sh 'cf delete jktest1 -f'
+                sh 'sleep 30'
                 sh 'cf icd --delete-connection $ICD_WEBHOOK_URL jktest1'
+                sh 'cf delete jktest1 -f'
             }
         }
     }
