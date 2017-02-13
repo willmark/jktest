@@ -26,6 +26,7 @@ pipeline {
                 echo 'Deploying....'
                 sh 'cf push jktest1 -m 64M -i 1'
                 sh 'cf icd --create-connection $ICD_WEBHOOK_URL jktest1'
+                sh 'set'
             }
         }
         stage('Delete') {
