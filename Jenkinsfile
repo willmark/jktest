@@ -24,9 +24,7 @@ pipeline {
         stage('Deploy') {
             steps {
                 echo 'Deploying....'
-                sh 'git fetch -t'
-                sh 'git branch'
-                sh 'git config -l'
+                sh 'set'
                 sh 'git branch -v'
                 sh 'echo cf push jktest1 -m 64M -i 1'
                 sh 'echo cf icd --create-connection $ICD_WEBHOOK_URL jktest1'
