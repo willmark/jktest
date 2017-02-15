@@ -24,7 +24,7 @@ pipeline {
         stage('Deploy') {
             steps {
                 echo 'Deploying....'
-                sh 'git fetch'
+                sh 'git fetch -t'
                 sh 'git branch'
                 sh 'git config -l'
                 sh 'git branch -v'
