@@ -24,11 +24,9 @@ pipeline {
         stage('Deploy') {
             steps {
                 echo 'Deploying....'
-                sh 'cat .git/HEAD'
-                sh 'ls .git/refs/head'
+                sh 'git branch -v'
                 sh 'cf push jktest1 -m 64M -i 1'
                 sh 'cf icd --create-connection $ICD_WEBHOOK_URL jktest1'
-                sh 'cat .git/config'
             }
         }
         stage('Delete') {
