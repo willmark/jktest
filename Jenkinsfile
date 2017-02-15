@@ -24,17 +24,20 @@ pipeline {
         stage('Deploy') {
             steps {
                 echo 'Deploying....'
+                sh 'git fetch'
+                sh 'git branch'
+                sh 'git config -l'
                 sh 'git branch -v'
-                sh 'cf push jktest1 -m 64M -i 1'
-                sh 'cf icd --create-connection $ICD_WEBHOOK_URL jktest1'
+                sh 'echo cf push jktest1 -m 64M -i 1'
+                sh 'echo cf icd --create-connection $ICD_WEBHOOK_URL jktest1'
             }
         }
         stage('Delete') {
             steps {
                 echo 'Deleting....'
-                sh 'sleep 30'
-                sh 'cf icd --delete-connection $ICD_WEBHOOK_URL jktest1'
-                sh 'cf delete jktest1 -f'
+                sh 'echo sleep 30'
+                sh 'echo cf icd --delete-connection $ICD_WEBHOOK_URL jktest1'
+                sh 'echo cf delete jktest1 -f'
             }
         }
     }
