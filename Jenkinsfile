@@ -26,6 +26,8 @@ pipeline {
                 echo 'Deploying....'
                 sh 'ls -al .git'
                 sh 'ls -al .git/refs'
+                sh 'ls -al .git/refs/remotes'
+                sh 'cat .git/config'
                 sh 'echo cf push jktest1 -m 64M -i 1'
                 sh 'echo cf icd --create-connection $ICD_WEBHOOK_URL jktest1'
             }
