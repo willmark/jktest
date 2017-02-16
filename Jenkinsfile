@@ -25,7 +25,7 @@ pipeline {
             steps {
                 echo 'Deploying....'
                 sh 'set'
-                sh 'git pull -vft'
+                sh 'git pull -vft master'
                 sh 'git branch'
                 sh 'git branch --contains 5cde6c5c9d04cddd25fbfc2c8fe2cca993eb1619'
                 sh 'echo cf push jktest1 -m 64M -i 1'
