@@ -24,7 +24,7 @@ pipeline {
         stage('Deploy') {
             steps {
                 echo 'Deploying....'
-                sh 'ls -al .git/refs/heads'
+                sh 'cat .git/refs/remotes/origin/HEAD'
                 sh 'echo cf push jktest1 -m 64M -i 1'
                 sh 'echo cf icd --create-connection $ICD_WEBHOOK_URL jktest1'
             }
